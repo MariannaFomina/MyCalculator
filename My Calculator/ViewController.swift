@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
 
     var operand = ""
     var numberOne = ""
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     }
     //кнопка результата
-    @IBAction func resultAction(_ sender: Any) {
+    @IBAction func resultAction(_ sender: Any)
         var result = 0.0
         
         switch operand {
@@ -60,5 +60,5 @@ class ViewController: UIViewController {
         } else {
             resultLabel.text = String(result)
         }
-    }
+    
 
