@@ -18,9 +18,10 @@ class ViewController: UIViewController {
 
 
 /* Функция нажатия кнопок 0...9
- При нажатии на цифры, значениебудет передаваться в переменную numberOne и отображаться элементе resultLabel. Далее если будет нажата кнопка с операндом значение будет записываться в переменную operand, и пользовательможет ввести второе число, которое в свою очередь будет записывться в переменную numberTwo
+ При нажатии на цифры, значение будет передаваться в переменную numberOne и отображаться элементе resultLabel. Далее если будет нажата кнопка с операндом значение будет записываться в переменную operand, и пользователь может ввести второе число, которое в свою очередь будет записывться в переменную numberTwo
  */
     @IBAction func inputNumber(_ sender: UIButton) {
+    
         if operand.isEmpty {
             numberOne = numberOne + (sender.titleLabel?.text)!
             resultLabel.text = numberOne
@@ -28,24 +29,24 @@ class ViewController: UIViewController {
             numberTwo = numberTwo + (sender.titleLabel?.text)!
             resultLabel.text = numberTwo
         }
-    
-    // Фукция обнуления
+    }
+// Функция обнуления
     @IBAction func clearAction(_ sender: UIButton) {
-  numberOne = ""
-  numberTwo = ""
-  operand = ""
-  resultLabel.text = "0"
-}
-      
-  // Функция обработки нажатия на клавиши +, -, /, *
+   numberOne = ""
+        numberTwo = ""
+        operand = ""
+        resultLabel.text = "0"
+    }
+
+    // Функция обработки нажатия на клавиши +, -, /, *
     @IBAction func inputOperand(_ sender: UIButton) {
         operand = sender.titleLabel?.text as! String
     }
-  
-     //Кнопка результата
-        @IBAction func resultAction(_ sender: Any) {
+   
+    //Кнопка результата
+        @IBAction func resultLabel(_ sender: Any) {
             var result = 0.0
-     
+            
             switch operand {
             case "/":
                 result = Double(numberOne)! / Double(numberTwo)!
@@ -58,10 +59,11 @@ class ViewController: UIViewController {
             default:
                 break
             }
-        
-        if result.truncatingRemainder(dividingBy:  1.0) == 00 {
-            resultLabel.text = String(Int(result))
-        } else {
-            resultLabel.text = String(result)
+            if result.truncatingRemainder(dividingBy: 1/0) == 00 {
+                resultLabel.text = String(Int(result))
+            } else {
+                resultLabel.text = String(result)
+            }
         }
-    }
+
+}
